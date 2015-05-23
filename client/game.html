@@ -1,0 +1,53 @@
+<template name='Game'>
+
+	<div class="row">
+		<div class="col s12">
+			<div class="card">
+				<div class="card-content">
+					
+					<p>
+						<span class="card-title black-text">Qu'est-ce que {{ name }} ?</span> 
+						<span class="{{statusClass}}">{{status}}</span>
+						<span class="badge">Score : {{ score }}/{{ numberOfAnswers }}</span>
+					</p>
+
+					
+					<div class="row">
+						
+						{{#each possibleAnswers}}
+							{{> AnswerItem}}
+						{{/each}}
+
+					</div>
+
+					<a class="waves-effect waves-light btn i-dont-know">Je ne sais pas</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</template>
+
+<template name='AnswerItem'>
+
+	<div class="col s4">
+		<div class="card black-text" id="card-{{_id}}">
+
+			<div class="card-content">
+				<p>
+				<span class="card-title black-text answer-title-{{_id}}">Description</span> <br>
+				{{what}} <br />
+				<span class="card-title black-text answer-title-{{_id}}">Exemple</span> <br>
+				{{example}}
+				</p>
+			</div>
+
+			<div class="card-action">
+				<a href="#" class="answer {{_id}}" id="{{_id}}">Sélectionner cette réponse</a>
+			</div>
+
+		</div>
+	</div>
+	
+</template>
